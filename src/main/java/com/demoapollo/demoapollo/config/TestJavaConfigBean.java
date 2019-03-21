@@ -12,7 +12,7 @@ public class TestJavaConfigBean {
         if (testJavaConfigBean == null){
             synchronized(TestJavaConfigBean.class){
                 if (testJavaConfigBean == null){
-                    new TestJavaConfigBean();
+                    testJavaConfigBean = new TestJavaConfigBean();
                 }
             }
         }
@@ -21,9 +21,9 @@ public class TestJavaConfigBean {
 
     @Value("${timeout:100}")
     private int timeout;
+    @Value("${batch:200}")
     private int batch;
 
-    @Value("${batch:200}")
     public void setBatch(int batch) {
         this.batch = batch;
     }
